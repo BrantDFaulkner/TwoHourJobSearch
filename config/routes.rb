@@ -8,6 +8,21 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
+
+  get "companies", to: "companies#index", as: "companies"
+
+
+ #  Prefix Verb   URI Pattern                    Controller#Action
+ #     tools GET    /tools(.:format)               tools#index
+ #           POST   /tools(.:format)               tools#create
+ #  new_tool GET    /tools/new(.:format)           tools#new
+ # edit_tool GET    /tools/:id/edit(.:format)      tools#edit
+ #      tool GET    /tools/:id(.:format)           tools#show
+ #           PATCH  /tools/:id(.:format)           tools#update
+ #           PUT    /tools/:id(.:format)           tools#update
+ #           DELETE /tools/:id(.:format)           tools#destroy
+# get "/tools", to: "tools#index", as: "tools"
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
