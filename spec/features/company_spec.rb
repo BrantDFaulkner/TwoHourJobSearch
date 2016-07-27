@@ -1,5 +1,4 @@
 require 'rails_helper'
-# require 'capybara/rspec'
 
 describe "Company" do
 

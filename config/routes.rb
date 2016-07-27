@@ -8,6 +8,16 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
+  root 'pages#welcome'
+
+  get "/session/new", to: "session#new", as: :new_session
+  post "/session", to: "session#create", as: :session
+  # delete "/session", to: "session#destroy"
+
+  # get "/users", to: "users#index", as: :users
+  # post "/users", to: "users#create"
+  # get "/users/new", to: "users#new", as: :new_user
+  # get "users/:id", to: "users#show", as: :user
 
   get "companies", to: "companies#index", as: "companies"
 
