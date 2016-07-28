@@ -11,7 +11,7 @@ class SessionController < ApplicationController
       # redirect_to user_path(user)
       redirect_to root_path
     else
-      render new_session_path
+      # render new_session_path
     end
   end
 

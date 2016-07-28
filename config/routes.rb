@@ -15,11 +15,13 @@ Rails.application.routes.draw do
   # delete "/session", to: "session#destroy"
 
   # get "/users", to: "users#index", as: :users
-  # post "/users", to: "users#create"
-  # get "/users/new", to: "users#new", as: :new_user
+  post "/users", to: "users#create", as: :users
+  get "/users/new", to: "users#new", as: :new_user
   # get "users/:id", to: "users#show", as: :user
 
-  get "companies", to: "companies#index", as: "companies"
+  get "/companies", to: "companies#index", as: :companies
+  post "/companies", to: "companies#create"
+  get "/companies/new", to: "companies#new", as: :new_company
 
 
  #  Prefix Verb   URI Pattern                    Controller#Action

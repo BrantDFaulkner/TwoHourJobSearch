@@ -3,5 +3,6 @@
 <% @companies.each do |company| %>
   <div><%= company.name %></div>
 
-
 <% end %>
+
+<%= link_to "Add Company", new_company_path %>
