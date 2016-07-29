@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160727203932) do
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
+    t.integer "user_id"
     t.string  "name"
     t.integer "motivation"
   end

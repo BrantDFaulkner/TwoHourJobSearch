@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.create(company_params)
+    @company = current_user.companies.create(company_params)
     redirect_to companies_path
   end
 
