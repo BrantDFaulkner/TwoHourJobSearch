@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   post "/companies", to: "companies#create"
   get "/companies/new", to: "companies#new", as: :new_company
 
+  post "/contacts", to: "contacts#create", as: :contacts
+  get "/contacts/new", to: "contacts#new", as: :new_contact
+  get "/contacts/:contact_id", to: "contacts#show", as: :contact
+
 
  #  Prefix Verb   URI Pattern                    Controller#Action
  #     tools GET    /tools(.:format)               tools#index
