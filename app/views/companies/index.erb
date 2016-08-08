@@ -1,9 +1,59 @@
-<h1>Companies Index</h1>
 
-<% @companies.each do |company| %>
-  <div><%= company.name %></div>
+<%= link_to "Add Company", new_company_path, class: "btn btn-primary" %>
 
-<% end %>
+<div id="company_table" class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Target Companies</h3>
+  </div>
+  <div class="panel-body">
+    <div class="table_header row">
+      <div class="col-xs-3"><%= link_to "List", pages_list_path %></div>
+      <div class="col-xs-3"><%= link_to "Advocate", pages_advocate_path %></div>
+      <div class="col-xs-3"><%= link_to "Motivation", pages_motivation_path %></div>
+      <div class="col-xs-3"><%= link_to "Posting", pages_posting_path %></div>
+    </div>
 
-<%= link_to "Add Company", new_company_path %>
-<%= link_to "Add Contact", new_contact_path %>
+    <% @companies.each do |company| %>
+      <div class="link_container row">
+        <%= link_to company_path(company) do %>
+          <span class="link_span"></span>
+        <% end %>
+        <div class="col-xs-3"><%= company.name %></div>
+        <div class="col-xs-3">
+          <div
+            id="<%= 'advocate_pill_' + company.id.to_s %>"
+            class="pill_boolean <%='pill_yes' if company.advocate == 'Yes'%> <%='pill_no' if company.advocate == 'No'%>">
+            <%= company.advocate %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <select class="company_motivation" id="<%= 'company_motivation_' + company.id.to_s%>">
+            <option value></option>
+            <option <%="selected='selected'" if company.motivation == 0%> value="0">0</option>
+            <option <%="selected='selected'" if company.motivation == 1%> value="1">1</option>
+            <option <%="selected='selected'" if company.motivation == 2%> value="2">2</option>
+            <option <%="selected='selected'" if company.motivation == 3%> value="3">3</option>
+            <option <%="selected='selected'" if company.motivation == 4%> value="4">4</option>
+            <option <%="selected='selected'" if company.motivation == 5%> value="5">5</option>
+          </select>
+        </div>
+        <div class="col-xs-3">
+          <select class="company_posting" id="<%= 'company_posting_' + company.id.to_s%>">
+            <option value></option>
+            <option <%="selected='selected'" if company.posting == 1%> value="1">1</option>
+            <option <%="selected='selected'" if company.posting == 2%> value="2">2</option>
+            <option <%="selected='selected'" if company.posting == 3%> value="3">3</option>
+            <option <%="selected='selected'" if company.posting == 4%> value="4">4</option>
+            <option <%="selected='selected'" if company.posting == 5%> value="5">5</option>
+          </select>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+<%#= link_to "Add Contact", new_contact_path %>

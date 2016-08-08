@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
 
   def index
-    @companies = Company.all
+    @companies = Company.includes(:contacts)
   end
 
   def new
@@ -9,14 +9,21 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = current_user.companies.create(company_params)
+    @company = current_user.companies.new(company_params)
+    @company.advocate = "TBD"
+    @company.save
     redirect_to companies_path
+  end
+
+  def show
+    @company = Company.find_by_id(params[:company_id])
+    session[:company_id] = @company.id
   end
 
 private
 
   def company_params
-    params.require(:company).permit(:name, :motivation)
+    params.require(:company).permit(:name)
   end
 
 

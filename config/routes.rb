@@ -8,11 +8,20 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  root 'pages#welcome'
+  root 'companies#index'
+
+  # get 'pages/welcome', to: "pages#welcome", as: :welcome
+  get 'pages/list', to: "pages#list", as: :pages_list
+  get 'pages/advocate', to: "pages#advocate", as: :pages_advocate
+  get 'pages/motivation', to: "pages#motivation", as: :pages_motivation
+  get 'pages/posting', to: "pages#posting", as: :pages_posting
+
+
+  # get 'pages/welcome', to: "pages#welcome", as: :welcome
 
   get "/session/new", to: "session#new", as: :new_session
   post "/session", to: "session#create", as: :session
-  # delete "/session", to: "session#destroy"
+  delete "/session", to: "session#destroy"
 
   # get "/users", to: "users#index", as: :users
   post "/users", to: "users#create", as: :users
@@ -22,11 +31,22 @@ Rails.application.routes.draw do
   get "/companies", to: "companies#index", as: :companies
   post "/companies", to: "companies#create"
   get "/companies/new", to: "companies#new", as: :new_company
+  get "/companies/:company_id", to: "companies#show", as: :company
+
+  patch "/api/companies/:company_id", to: "api/companies#update"
+
+  get "/companies/:company_id/contacts/new", to: "company_contacts#new", as: :new_company_contact
 
   post "/contacts", to: "contacts#create", as: :contacts
   get "/contacts/new", to: "contacts#new", as: :new_contact
   get "/contacts/:contact_id", to: "contacts#show", as: :contact
 
+
+  post "/company_contacts", to: "company_contacts#create", as: :company_contacts
+
+  get "/contacts/:contact_id/companies/new", to: "company_contacts#new", as: :new_contact_company
+
+  # post "" company_contacts_path
 
  #  Prefix Verb   URI Pattern                    Controller#Action
  #     tools GET    /tools(.:format)               tools#index

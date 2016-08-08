@@ -1,10 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/spec/features/company_spec.rb": [
+      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/spec/features/company_contacts_spec.rb": [
         1,
         null,
         1,
+        2,
+        2,
+        2,
+        2,
         2,
         2,
         null,
@@ -14,8 +18,8 @@
         1,
         1,
         1,
-        1,
-        1,
+        0,
+        0,
         null,
         null,
         null
@@ -283,6 +287,17 @@
         1,
         null,
         null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -343,6 +358,25 @@
       ],
       "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/app/helpers/application_helper.rb": [
         1,
+        null
+      ],
+      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/spec/features/company_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        null,
+        null,
         null
       ],
       "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/spec/features/contact_spec.rb": [
@@ -408,6 +442,12 @@
         null,
         null
       ],
+      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/app/models/company.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/app/controllers/pages_controller.rb": [
         1,
         null,
@@ -427,12 +467,12 @@
         null,
         null,
         1,
-        29,
+        36,
         null,
         1,
         null,
         1,
-        18,
+        22,
         null,
         1,
         null,
@@ -450,18 +490,71 @@
         null,
         null,
         1,
-        3,
-        3,
-        3,
+        4,
+        4,
+        4,
         null,
-        3,
-        null,
-        null,
+        4,
         null,
         null,
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/app/models/contact.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/app/controllers/contacts_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/app/controllers/company_contacts_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/app/models/company_contact.rb": [
+        1,
         null,
         null,
         null,
@@ -484,34 +577,7 @@
         null,
         null,
         1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/app/models/company.rb": [
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/app/controllers/contacts_controller.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
+        0,
         null,
         null,
         1,
@@ -520,11 +586,6 @@
         1,
         null,
         null,
-        null
-      ],
-      "/Users/BlunderBuss/Desktop/projects/TwoHourJobSearch/app/models/contact.rb": [
-        1,
-        1,
         null,
         null
       ],
@@ -554,6 +615,6 @@
         null
       ]
     },
-    "timestamp": 1469802890
+    "timestamp": 1470084953
   }
 }

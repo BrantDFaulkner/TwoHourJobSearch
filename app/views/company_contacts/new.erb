@@ -1,0 +1,25 @@
+
+
+Create New Contact
+<%= form_for(@contact) do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :phone_number %>
+  <%= f.telephone_field :phone_number %>
+  <%= f.submit "Create" %>
+<% end %>
+
+<h1>Add existing contact</h1>
+<%= form_for(@company_contact) do |f| %>
+  <%= f.text_field :contact_id %>
+  <%= f.submit "Create" %>
+<% end %>
+
+
+
+
+

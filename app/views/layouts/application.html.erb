@@ -18,7 +18,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">2HrJS</a>
+        <li><%= link_to "2HrJS", root_path, class: "navbar-brand" %></li>
+        <!-- <a class="navbar-brand" href="#">2HrJS</a> -->
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,8 +27,8 @@
 
         <ul class="nav navbar-nav navbar-right">
           <% if signed_in? %>
-            <li>Signed in as <%= current_user.username %></li>
-            <li><%#= link_to "SignOut", session_path, method: :delete %><li>
+            <li><%= link_to "Signed in as #{current_user.username}", "#" %></li>
+            <li><%= link_to "SignOut", session_path, method: :delete %><li>
           <% else %>
             <li><%= link_to "Sign In", new_session_path %></li>
             <li><%= link_to "Register", new_user_path %></li>
@@ -39,8 +40,9 @@
 
 
 
-
-<%= yield %>
+  <div class="container-fluid">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
