@@ -1,4 +1,5 @@
 class Api::CompaniesController < ApplicationController
+  before_filter :require_user
 
   def update
     company = Company.find_by_id(params[:company_id])
@@ -11,6 +12,5 @@ class Api::CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(:advocate, :motivation, :posting)
   end
-
 
 end

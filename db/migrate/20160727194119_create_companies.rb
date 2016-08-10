@@ -3,7 +3,7 @@ class CreateCompanies < ActiveRecord::Migration
     create_table :companies do |t|
       t.belongs_to  :user
 
-      t.string      :advocate
+      t.boolean     :advocate, default: false
       t.integer     :motivation
       t.string      :name
       t.integer     :posting

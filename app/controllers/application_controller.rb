@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
   end
   helper_method :signed_in?
 
-  # def require_user
-  #   redirect_to '/sessions/new' unless signed_in?
-  # end
+  def require_user
+    redirect_to new_session_path unless signed_in?
+  end
 
 end

@@ -1,7 +1,8 @@
 class CompaniesController < ApplicationController
+  before_filter :require_user
 
   def index
-    @companies = Company.prioritize(Company.includes(:contacts))
+    @companies = Company.prioritize(current_user.companies.includes(:contacts))
   end
 
   def new
@@ -9,9 +10,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = current_user.companies.new(company_params)
-    @company.advocate = "TBD"
-    @company.save
+    @company = current_user.companies.create(company_params)
     redirect_to companies_path
   end
 

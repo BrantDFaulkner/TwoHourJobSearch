@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160801143044) do
 
   create_table "companies", force: :cascade do |t|
     t.integer "user_id"
-    t.string  "advocate"
+    t.boolean "advocate",   default: false
     t.integer "motivation"
     t.string  "name"
     t.integer "posting"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20160801143044) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "username"
     t.string "password_digest"
   end
 

@@ -16,25 +16,42 @@
 
 $(document).ready(function(){
 
-  $(".pill_boolean").on("click", function() {
-    var self = this
-    var select_id = '#' + self.id
-    var company_id = self.id.match(/\d+/g)
-    var classList = self.className.split(/\s+/)
+  // $(".pill_boolean").on("click", function() {
+  //   var self = this
+  //   var select_id = '#' + self.id
+  //   var company_id = self.id.match(/\d+/g)
+  //   var classList = self.className.split(/\s+/)
 
-    if (classList.includes("pill_yes")) {
-      $(select_id).toggleClass("pill_yes pill_no")
-      $(select_id).text("No")
-      update_company(company_id, "advocate", "No")
-    } else if (classList.includes("pill_no")) {
-      $(select_id).toggleClass("pill_no")
-      $(select_id).text('TBD')
-      update_company(company_id, "advocate", "TBD")
+  //   if (classList.includes("pill_yes")) {
+  //     $(select_id).toggleClass("pill_yes pill_no")
+  //     $(select_id).text("No")
+  //     update_company(company_id, "advocate", "No")
+  //   } else if (classList.includes("pill_no")) {
+  //     $(select_id).toggleClass("pill_no")
+  //     $(select_id).text('TBD')
+  //     update_company(company_id, "advocate", "TBD")
+  //   } else {
+  //     $(select_id).toggleClass("pill_yes")
+  //     $(select_id).text('Yes')
+  //     update_company(company_id, "advocate", "Yes")
+  //   }
+  // })
+
+  $(".slider label").on("click", function(event) {
+    var self = this
+    var company_id = self.id.match(/\d+/g)
+    var select_slider = "#slider_" + company_id
+    var select_slider_span = select_slider + " span"
+
+    if ($(select_slider_span).text() == "NO") {
+      $(select_slider_span).text("YES").fadeIn()
+      update_company(company_id, "advocate", true)
     } else {
-      $(select_id).toggleClass("pill_yes")
-      $(select_id).text('Yes')
-      update_company(company_id, "advocate", "Yes")
+      $(select_slider_span).text("NO")
+      update_company(company_id, "advocate", false)
     }
+
+    $(select_slider).toggleClass("yes no")
   })
 
   $(".company_motivation").on("change", function () {

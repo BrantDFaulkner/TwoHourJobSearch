@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
     sorted_arr = []
     [5,4,3,2,1,0,nil].each { |motivation|
       [5,4,3,2,1,0,nil].each { |posting|
-        ["Yes","No","TBD"].each { |advocate|
+        [true, false].each { |advocate|
           arr.each { |company|
             if company.motivation == motivation && company.posting == posting && company.advocate == advocate
               sorted_arr << company

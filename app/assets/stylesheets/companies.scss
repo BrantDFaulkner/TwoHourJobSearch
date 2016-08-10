@@ -1,0 +1,90 @@
+.table {
+  display: table;
+  width: 100%;
+  padding: 4px;
+  border-width: 2px;
+  border-color: $color_three;
+  border-style: solid;
+  border-radius: 5px;
+  .row {
+    display: table-row;
+    &:nth-child(odd) {
+      background-color: $color_two;
+    }
+    &:last-child {
+      .cell {
+        border-bottom-width: 0px;
+        border-radius: 0px 0px 5px 5px;
+      }
+    }
+  }
+  .cell {
+      display: table-cell;
+      padding: 15px;
+      border-width: 0px 2px 1px 2px;
+      border-color: white white $color_three white;
+      border-style: solid;
+    }
+  .header {
+    background: $color_four;
+    border-bottom-width: 0px;
+    font-size: 1.2em;
+    &:first-child {
+      border-radius: 5px 0px 0px 0px;
+      border-left: 0px;
+    }
+    &:last-child {
+      border-radius: 0px 5px 0px 0px;
+      border-right: 0px;
+    }
+    a {
+      color: $color_two;
+      font-weight: bold;
+      text-decoration: none;
+      &:hover {
+        color: $color_three;
+      }
+    }
+  }
+}
+
+
+
+.slider {
+  width: 80px;
+  height: 26px;
+  background: $color_one;
+  color: $color_two;
+  border-radius: 50px;
+  position: relative;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+  span {
+    margin: 0px 12px;
+  }
+  &.yes {
+    text-align: left;
+  }
+  &.no {
+    text-align: right;
+  }
+  input {
+    display: none;
+    &:checked + label {
+      left: 39px;
+    }
+  }
+  label {
+    display: block;
+    width: 38px;
+    height: 20px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 1;
+    border-radius: 50px;
+    transition: all .4s ease;
+    cursor: pointer;
+    @include gradient($color_four);
+  }
+}

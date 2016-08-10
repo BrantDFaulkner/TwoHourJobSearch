@@ -1,41 +1,27 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'pages#welcome'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  root 'companies#index'
-
-  # get 'pages/welcome', to: "pages#welcome", as: :welcome
   get 'pages/list', to: "pages#list", as: :pages_list
   get 'pages/advocate', to: "pages#advocate", as: :pages_advocate
   get 'pages/motivation', to: "pages#motivation", as: :pages_motivation
   get 'pages/posting', to: "pages#posting", as: :pages_posting
 
-
-  # get 'pages/welcome', to: "pages#welcome", as: :welcome
-
   get "/session/new", to: "session#new", as: :new_session
   post "/session", to: "session#create", as: :session
   delete "/session", to: "session#destroy"
 
-  # get "/users", to: "users#index", as: :users
   post "/users", to: "users#create", as: :users
   get "/users/new", to: "users#new", as: :new_user
-  # get "users/:id", to: "users#show", as: :user
 
   get "/companies", to: "companies#index", as: :companies
   post "/companies", to: "companies#create"
   get "/companies/new", to: "companies#new", as: :new_company
-  get "/companies/:company_id", to: "companies#show", as: :company
+  # get "/companies/:company_id", to: "companies#show", as: :company
 
   patch "/api/companies/:company_id", to: "api/companies#update"
 
-  get "/companies/:company_id/contacts/new", to: "company_contacts#new", as: :new_company_contact
+  # get "/companies/:company_id/contacts/new", to: "company_contacts#new", as: :new_company_contact
 
   post "/contacts", to: "contacts#create", as: :contacts
   get "/contacts/new", to: "contacts#new", as: :new_contact
