@@ -1,0 +1,42 @@
+body {
+  padding-top: 70px;
+}
+
+nav {
+  background: $color_one;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  color: $color_two;
+  border-width: 0px 0px 2px 0px;
+  border-color: $color_three;
+  border-style: solid;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li:first-child {
+      float: left;
+      font-size: 1.3em;
+    }
+    li {
+      float: right;
+      padding: 5px 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    a {
+      color: $color_two;
+      text-decoration: none;
+      &:hover {
+        color: $color_three;
+      }
+    }
+  }
+}
+
+#content_wrapper {
+  margin: 0px 20px;
+}

@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
 
   def index
-    @companies = Company.includes(:contacts)
+    @companies = Company.prioritize(Company.includes(:contacts))
   end
 
   def new

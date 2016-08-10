@@ -1,9 +1,11 @@
 
-<%= link_to "Add Company", new_company_path, class: "btn btn-primary" %>
+
 
 <div id="company_table" class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Target Companies</h3>
+    <%= link_to "Add Company", new_company_path, class: "btn btn-primary get_right" %>
+    <%= link_to "Sort Companies", companies_path, class: "btn btn-primary get_right" %>
   </div>
   <div class="panel-body">
     <div class="table_header row">
@@ -14,7 +16,7 @@
     </div>
 
     <% @companies.each do |company| %>
-      <div class="link_container row">
+      <div class="table_row row">
         <%= link_to company_path(company) do %>
           <span class="link_span"></span>
         <% end %>
