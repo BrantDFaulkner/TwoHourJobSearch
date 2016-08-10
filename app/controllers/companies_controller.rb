@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   before_filter :require_user
 
   def index
-    @companies = current_user.companies.prioritized
+    @companies = env['companies'].prioritized
   end
 
   def new
@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = current_user.companies.create(company_params)
+    @company = env['companies'].create(company_params)
     redirect_to companies_path
   end
 

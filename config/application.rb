@@ -31,5 +31,30 @@ module TwoHourJobSearch
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+
+    class SetCurrentUser
+      def initialize(app)
+        @app = app
+      end
+      def call(env)
+        user_id = env['rack.session'][:user_id]
+        env['current_user'] = User.find(user_id)
+        @app.call(env)
+      end
+    end
+
+    class SetCompanies
+      def initialize(app)
+        @app = app
+      end
+      def call(env)
+        env['companies'] = env['current_user'].companies
+        @app.call(env)
+      end
+    end
+
+    middleware.insert_after ActionDispatch::ParamsParser, SetCurrentUser
+    middleware.insert_after SetCurrentUser,               SetCompanies
   end
 end
