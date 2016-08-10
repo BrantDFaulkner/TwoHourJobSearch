@@ -21,18 +21,11 @@ Rails.application.routes.draw do
 
   patch "/api/companies/:company_id", to: "api/companies#update"
 
-  # get "/companies/:company_id/contacts/new", to: "company_contacts#new", as: :new_company_contact
-
-  post "/contacts", to: "contacts#create", as: :contacts
-  get "/contacts/new", to: "contacts#new", as: :new_contact
-  get "/contacts/:contact_id", to: "contacts#show", as: :contact
 
 
-  post "/company_contacts", to: "company_contacts#create", as: :company_contacts
 
-  get "/contacts/:contact_id/companies/new", to: "company_contacts#new", as: :new_contact_company
 
-  # post "" company_contacts_path
+
 
  #  Prefix Verb   URI Pattern                    Controller#Action
  #     tools GET    /tools(.:format)               tools#index

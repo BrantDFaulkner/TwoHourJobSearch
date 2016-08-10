@@ -20,6 +20,7 @@
           <input type="checkbox" value="None" id="<%= 'slider_input_' + company.id.to_s%>" name="check" <%= 'checked' if company.advocate %>/>
           <label id="<%= 'slider_label_' + company.id.to_s%>" for="<%= 'slider_input_' + company.id.to_s%>"></label>
         </div>
+        <%= link_to "view advocates", class: "" %>
       </div>
 
       <div class="cell">

@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   before_filter :require_user
 
   def index
-    @companies = Company.prioritize(current_user.companies.includes(:contacts))
+    @companies = current_user.companies.prioritized
   end
 
   def new
