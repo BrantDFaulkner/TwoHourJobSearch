@@ -10,8 +10,8 @@
     <div class= "cell header"><%= link_to "Posting", pages_posting_path %></div>
   </div>
 
-  <% @companies.each do |company| %>
-    <div class="row">
+  <% @companies.each_with_index do |company, i| %>
+    <div class="row <%= 'highlighted' if i % 2 == 1 %> <%= 'last' if i == @companies.length-1 %>">
       <div class="cell"><%= company.name %></div>
 
       <div class="cell">
@@ -20,12 +20,12 @@
           <input type="checkbox" value="None" id="<%= 'slider_input_' + company.id.to_s%>" name="check" <%= 'checked' if company.advocate %>/>
           <label id="<%= 'slider_label_' + company.id.to_s%>" for="<%= 'slider_input_' + company.id.to_s%>"></label>
         </div>
-        <%= link_to "view advocates", class: "" %>
+        <%= link_to "view advocates", "#", class: "view_advocates", id: "view_advocates_id_#{company.id}" %>
       </div>
 
       <div class="cell">
         <select class="company_motivation" id="<%= 'company_motivation_' + company.id.to_s%>">
-          <option value></option>
+          <option value="-1"></option>
           <% Array(0..5).each do |num| %>
             <option <%="selected='selected'" if company.motivation == num%> value="<%= num.to_s %>"><%= num %></option>
           <% end %>
@@ -35,7 +35,7 @@
 
       <div class="cell">
         <select class="company_posting" id="<%= 'company_posting_' + company.id.to_s%>">
-          <option value></option>
+          <option value="-1"></option>
             <% Array(1..5).each do |num| %>
               <option <%="selected='selected'" if company.posting == num %> value="<%= num.to_s %>"><%= num %></option>
             <% end %>
@@ -43,6 +43,14 @@
       </div>
 
     </div><!-- ROW -->
+
+
+    <div class="advocates" id="advocate_id_<%=company.id%>">
+      <p><%= i %></p>
+      <p>J Jobes</p>
+      <p>Add Advocate</p>
+    </div>
+
   <% end %>
 </div><!-- TABLE -->
 

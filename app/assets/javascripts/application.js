@@ -47,6 +47,22 @@ $(document).ready(function(){
     update_company(company_id, "posting", new_value)
   })
 
+  $(".view_advocates").on("click", function (e) {
+    e.preventDefault()
+    var self = this
+    var company_id = self.id.match(/\d+/g)
+    self.text = toggleAdvocate(self.text)
+
+    function toggleAdvocate(arg) {
+      return arg === "view advocates" ? "hide advocates" : "view advocates";
+    }
+
+     // self.text(function(i, text){
+     //
+     //  })
+    $("#advocate_id_" + company_id[0]).toggle()
+  })
+
 });//DOCUMENT READY
 
   function update_company(company_id, key, value) {

@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20160801143044) do
   create_table "companies", force: :cascade do |t|
     t.integer "user_id"
     t.boolean "advocate",   default: false
-    t.integer "motivation"
+    t.integer "motivation", default: -1
     t.string  "name"
-    t.integer "posting"
+    t.integer "posting",    default: -1
   end
 
   create_table "company_contacts", force: :cascade do |t|

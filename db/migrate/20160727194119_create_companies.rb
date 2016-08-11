@@ -4,9 +4,9 @@ class CreateCompanies < ActiveRecord::Migration
       t.belongs_to  :user
 
       t.boolean     :advocate, default: false
-      t.integer     :motivation
+      t.integer     :motivation, default: -1
       t.string      :name
-      t.integer     :posting
+      t.integer     :posting, default: -1
     end
   end
 end

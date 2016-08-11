@@ -8,10 +8,10 @@
   border-radius: 5px;
   .row {
     display: table-row;
-    &:nth-child(odd) {
+    &.highlighted {
       background-color: $color_two;
     }
-    &:last-child {
+    &.last {
       .cell {
         border-bottom-width: 0px;
         border-radius: 0px 0px 5px 5px;
@@ -46,6 +46,9 @@
         color: $color_three;
       }
     }
+  }
+  .advocates {
+    display: none;
   }
 }
 
