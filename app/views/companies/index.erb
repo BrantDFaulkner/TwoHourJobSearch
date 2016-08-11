@@ -2,19 +2,20 @@
 <%= link_to "Add Company", new_company_path, class: "" %>
 <%= link_to "Sort Companies", companies_path, class: "" %>
 
-<div class="table">
-  <div class="row">
-    <div class= "cell header"><%= link_to "List", pages_list_path %></div>
-    <div class= "cell header"><%= link_to "Advocate", pages_advocate_path %></div>
-    <div class= "cell header"><%= link_to "Motivation", pages_motivation_path %></div>
-    <div class= "cell header"><%= link_to "Posting", pages_posting_path %></div>
+<div id="company_table">
+  <div class="company_table_row">
+    <div class= "company_table_header"><%= link_to "List", pages_list_path %></div>
+    <div class= "company_table_header"><%= link_to "Advocate", pages_advocate_path %></div>
+    <div class= "company_table_header"><%= link_to "Motivation", pages_motivation_path %></div>
+    <div class= "company_table_header"><%= link_to "Posting", pages_posting_path %></div>
   </div>
 
   <% @companies.each_with_index do |company, i| %>
-    <div class="row <%= 'highlighted' if i % 2 == 1 %> <%= 'last' if i == @companies.length-1 %>">
-      <div class="cell"><%= company.name %></div>
+    <div class="company_table_row <%= 'highlighted' if i % 2 == 1 %> <%= 'last' if i == @companies.length-1 %>">
 
-      <div class="cell">
+      <div class="company_table_cell"><%= company.name %></div>
+
+      <div class="company_table_cell">
         <div class="slider <%= company.advocate ? 'yes': 'no' %>" id="<%= 'slider_' + company.id.to_s%>">
           <span><%= company.advocate ? 'YES': 'NO' %></span>
           <input type="checkbox" value="None" id="<%= 'slider_input_' + company.id.to_s%>" name="check" <%= 'checked' if company.advocate %>/>
@@ -23,7 +24,7 @@
         <%= link_to "view advocates", "#", class: "view_advocates", id: "view_advocates_id_#{company.id}" %>
       </div>
 
-      <div class="cell">
+      <div class="company_table_cell">
         <select class="company_motivation" id="<%= 'company_motivation_' + company.id.to_s%>">
           <option value="-1"></option>
           <% Array(0..5).each do |num| %>
@@ -33,7 +34,7 @@
       </div>
 
 
-      <div class="cell">
+      <div class="company_table_cell">
         <select class="company_posting" id="<%= 'company_posting_' + company.id.to_s%>">
           <option value="-1"></option>
             <% Array(1..5).each do |num| %>
@@ -45,10 +46,27 @@
     </div><!-- ROW -->
 
 
-    <div class="advocates" id="advocate_id_<%=company.id%>">
-      <p><%= i %></p>
-      <p>J Jobes</p>
-      <p>Add Advocate</p>
+    <div class="advocates_table" id="advocate_id_<%=company.id%>">
+      <div class="table">
+        <div class="row">
+          <%= form_for [company, @advocate] do |f| %>
+            <div class="cell"><%= f.text_field :first_name %></div>
+            <div class="cell"><%= f.text_field :last_name %></div>
+            <div class="cell"><%= f.text_field :email %></div>
+            <div class="cell"><%= f.text_field :phone_number %></div>
+            <div class="cell"><%= f.text_field :linkedin %></div>
+            <div class="cell"><%= f.submit "Add Advocate" %></div>
+          <% end %>
+        </div>
+      </div>
+
+      <% company.advocates.each do |advocate| %>
+        <div><%= advocate.first_name %></div>
+        <div><%= advocate.last_name %></div>
+        <div><%= advocate.email %></div>
+        <div><%= advocate.linkedin %></div>
+        <div><%= advocate.phone_number%></div>
+      <% end %>
     </div>
 
   <% end %>

@@ -5,8 +5,9 @@ class AdvocatesController < ApplicationController
   end
 
   def create
-    contact = Advocate.create(advocate_params)
-    redirect_to advocate_path(advocate)
+    advocate = current_user.advocates.create(advocate_params)
+    Advocation.create(advocate_id: advocate.id, company_id: params[:company_id])
+    redirect_to companies_path
   end
 
   def show
@@ -16,7 +17,7 @@ class AdvocatesController < ApplicationController
 private
 
   def advocate_params
-    params.require(:advocate).permit(:first_name, :last_name, :phone_number, :email)
+    params.require(:advocate).permit(:first_name, :last_name, :phone_number, :email, :linkedin)
   end
 
 end

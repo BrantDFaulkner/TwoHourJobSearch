@@ -2,7 +2,8 @@ class CompaniesController < ApplicationController
   before_filter :require_user
 
   def index
-    @companies = current_user.companies.prioritized
+    @companies = current_user.companies.includes(:advocates).prioritized
+    @advocate = Advocate.new
   end
 
   def new
@@ -16,7 +17,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find_by_id(params[:company_id])
-    session[:company_id] = @company.id
+    # session[:company_id] = @company.id
   end
 
 private

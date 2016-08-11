@@ -1,95 +1,137 @@
-.table {
-  display: table;
-  width: 100%;
+#company_table {
   padding: 4px;
   border-width: 2px;
   border-color: $color_three;
   border-style: solid;
   border-radius: 5px;
-  .row {
-    display: table-row;
+  @include clear_fix;
+  .company_table_row {
+    padding: 10px 0px;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: $color_three;
+    @include clear_fix;
+    &:first-child {
+      border-bottom-width: 0px;
+      padding: 0px;
+    }
     &.highlighted {
       background-color: $color_two;
     }
-    &.last {
-      .cell {
-        border-bottom-width: 0px;
-        border-radius: 0px 0px 5px 5px;
-      }
-    }
-  }
-  .cell {
-      display: table-cell;
+    .company_table_header {
+      box-sizing: border-box;
       width: 25%;
-      padding: 15px;
-      border-width: 0px 2px 1px 2px;
-      border-color: white white $color_three white;
+      float: left;
+      background: $color_four;
+      font-size: 1.3em;
+      padding: 10px;
       border-style: solid;
-    }
-  .header {
-    background: $color_four;
-    border-bottom-width: 0px;
-    font-size: 1.2em;
-    &:first-child {
-      border-radius: 5px 0px 0px 0px;
-      border-left: 0px;
-    }
-    &:last-child {
-      border-radius: 0px 5px 0px 0px;
-      border-right: 0px;
-    }
-    a {
-      color: $color_two;
-      font-weight: bold;
-      text-decoration: none;
-      &:hover {
-        color: $color_three;
+      border-width: 0px 2px;
+      border-color: white;
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-left-width: 0px;
+      }
+      &:last-child {
+        border-top-right-radius: 5px;
+        border-right-width: 0px;
+      }
+      a {
+        padding: 5px;
+        color: $color_two;
+        font-weight: bold;
+        text-decoration: none;
+        &:hover {
+          color: $color_three;
+        }
       }
     }
-  }
-  .advocates {
-    display: none;
-  }
-}
-
-
-
-.slider {
-  display: inline-block;
-  width: 80px;
-  height: 26px;
-  background: $color_one;
-  color: $color_two;
-  border-radius: 50px;
-  position: relative;
-  font: 12px/26px Arial, sans-serif;
-  font-weight: bold;
-  span {
-    margin: 0px 12px;
-  }
-  &.yes {
-    text-align: left;
-  }
-  &.no {
-    text-align: right;
-  }
-  input {
-    display: none;
-    &:checked + label {
-      left: 39px;
+    .company_table_cell {
+      box-sizing: border-box;
+      width: 25%;
+      float: left;
+      font-size: 1.2em;
+      padding: 0px 0px 0px 15px;
+      &:first-child {
+        border-left-width: 0px;
+      }
+      &:last-child {
+        border-right-width: 0px;
+      }
     }
-  }
-  label {
-    display: block;
-    width: 38px;
-    height: 20px;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    z-index: 1;
-    border-radius: 50px;
-    transition: all .4s ease;
-    cursor: pointer;
-    @include gradient($color_four);
-  }
+  }//.company_table_row
+}//#company_table
+
+.advocates_table {
+  display: none;
 }
+//   .cell {
+//       // display: table-cell;
+//       width: 25%;
+//       padding: 15px;
+//       border-width: 0px 2px 1px 2px;
+//       border-color: white white $color_three white;
+//       border-style: solid;
+//     }
+//   .header {
+
+//     }
+//   }
+//   .advocates {
+//     display: none;
+//   }
+// }
+
+
+
+// .slider {
+//   display: inline-block;
+//   width: 80px;
+//   height: 26px;
+//   background: $color_one;
+//   color: $color_two;
+//   border-radius: 50px;
+//   position: relative;
+//   font: 12px/26px Arial, sans-serif;
+//   font-weight: bold;
+//   span {
+//     margin: 0px 12px;
+//   }
+//   &.yes {
+//     text-align: left;
+//   }
+//   &.no {
+//     text-align: right;
+//   }
+//   input {
+//     display: none;
+//     &:checked + label {
+//       left: 39px;
+//     }
+//   }
+//   label {
+//     display: block;
+//     width: 38px;
+//     height: 20px;
+//     position: absolute;
+//     top: 3px;
+//     left: 3px;
+//     z-index: 1;
+//     border-radius: 50px;
+//     transition: all .4s ease;
+//     cursor: pointer;
+//     @include gradient($color_four);
+//   }
+// }
+
+// .advocates {
+//   .table {
+//     display: table;
+//     .row {
+//       display: table-row;
+//       .cell {
+//         display: table-cell;
+//       }
+//     }
+//   }
+// }

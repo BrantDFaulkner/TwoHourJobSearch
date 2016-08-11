@@ -1,7 +1,7 @@
 class Company < ActiveRecord::Base
   belongs_to :user
-  has_many :company_contacts
-  has_many :contacts, through: :company_contacts
+  has_many :advocations
+  has_many :advocates, through: :advocations
 
   scope :prioritized, -> { order(motivation: :desc, posting: :desc, advocate: :desc) }
 

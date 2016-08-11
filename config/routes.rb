@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   patch "/api/companies/:company_id", to: "api/companies#update"
 
+  post "/companies/:company_id/advocates", to: "advocates#create", as: :company_advocates
 
 
 
