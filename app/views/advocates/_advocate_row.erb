@@ -1,0 +1,14 @@
+<div class="advocate_table_row">
+  <div class="advocate_table_cell"><%= advocate.first_name %></div>
+  <div class="advocate_table_cell"><%= advocate.last_name %></div>
+  <div class="advocate_table_cell"><%= advocate.email %></div>
+  <div class="advocate_table_cell"><%= advocate.phone_number%></div>
+  <div class="advocate_table_cell">
+      <% if !advocate.linkedin.empty?  %>
+        <%= link_to "LinkedIn", advocate.linkedin %>
+      <%else %>
+        <%= link_to "add" %>
+      <% end %>
+  </div>
+  <div class="advocate_table_cell"><%= link_to "edit" %></div>
+</div>

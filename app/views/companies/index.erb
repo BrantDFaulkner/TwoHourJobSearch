@@ -46,31 +46,52 @@
     </div><!-- ROW -->
 
 
-    <div class="advocates_table" id="advocate_id_<%=company.id%>">
-      <div class="table">
-        <div class="row">
-          <%= form_for [company, @advocate] do |f| %>
-            <div class="cell"><%= f.text_field :first_name %></div>
-            <div class="cell"><%= f.text_field :last_name %></div>
-            <div class="cell"><%= f.text_field :email %></div>
-            <div class="cell"><%= f.text_field :phone_number %></div>
-            <div class="cell"><%= f.text_field :linkedin %></div>
-            <div class="cell"><%= f.submit "Add Advocate" %></div>
-          <% end %>
-        </div>
+    <div class="advocate_table" id="advocate_id_<%=company.id%>">
+      <h2><%= company.name + ' Advocates' %></h2>
+      <div class="advocate_table_row header">
+        <div class="advocate_table_header">FIRST NAME</div>
+        <div class="advocate_table_header">LAST NAME</div>
+        <div class="advocate_table_header">EMAIL</div>
+        <div class="advocate_table_header">PHONE NUMBER</div>
+        <div class="advocate_table_header">LINKEDIN</div>
+        <div class="advocate_table_header">ACTION</div>
       </div>
 
       <% company.advocates.each do |advocate| %>
-        <div><%= advocate.first_name %></div>
-        <div><%= advocate.last_name %></div>
-        <div><%= advocate.email %></div>
-        <div><%= advocate.linkedin %></div>
-        <div><%= advocate.phone_number%></div>
+        <div class="advocate_table_row">
+          <div class="advocate_table_cell"><%= advocate.first_name %></div>
+          <div class="advocate_table_cell"><%= advocate.last_name %></div>
+          <div class="advocate_table_cell"><%= advocate.email %></div>
+          <div class="advocate_table_cell"><%= advocate.phone_number%></div>
+          <div class="advocate_table_cell">
+            <% if !advocate.linkedin.empty?  %>
+              <%= link_to "LinkedIn", advocate.linkedin %>
+            <%else %>
+              <%= link_to "add" %>
+            <% end %>
+          </div>
+          <div class="advocate_table_cell"><%= link_to "edit" %></div>
+        </div>
       <% end %>
-    </div>
+
+
+
+      <div class="advocate_table_row">
+        <%= form_for [company, @advocate], :html => { class: "advocate_form", id: "advocate_form_#{company.id}" } do |f| %>
+          <div class="advocate_table_cell"><%= f.text_field :first_name, placeholder: "First Name" %></div>
+          <div class="advocate_table_cell"><%= f.text_field :last_name, placeholder: "Last Name" %></div>
+          <div class="advocate_table_cell"><%= f.email_field :email, placeholder: "email@example.com" %></div>
+          <div class="advocate_table_cell"><%= f.telephone_field :phone_number , placeholder: "(123) 456-7890"%></div>
+          <div class="advocate_table_cell"><%= f.url_field :linkedin, placeholder: "https://www.linkedin.com..." %></div>
+          <div class="advocate_table_cell"><%= f.submit "Add Advocate", class: "advocate_submit" %></div>
+        <% end %>
+      </div>
+
+
+    </div><!-- advocate_table -->
 
   <% end %>
-</div><!-- TABLE -->
+</div><!-- company_table -->
 
 
 

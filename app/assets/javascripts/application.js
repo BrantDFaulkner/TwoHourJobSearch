@@ -57,13 +57,51 @@ $(document).ready(function(){
       return arg === "view advocates" ? "hide advocates" : "view advocates";
     }
 
-     // self.text(function(i, text){
-     //
-     //  })
-    $("#advocate_id_" + company_id[0]).toggle()
+    $("#advocate_id_" + company_id[0]).slideToggle()
   })
 
+  // $(".advocate_submit").on("click", function(event) {
+  //   event.preventDefault()
+  //   console.log("Bam!!")
+  // })
+
+$(".advocate_form").on("submit", function(event) {
+    event.preventDefault()
+    var data = $(this).serializeObject()
+    var company_id = this.id.match(/\d+/g)
+    var append_target = "#advocate_id_" + company_id + ">div:eq(0)"
+    $(this)[0].reset()
+
+    $.ajax({
+        method: "POST",
+        url: "/api/companies/" + company_id + "/advocates",
+        data: data
+      }).then(function(response) {
+        console.log(response)
+        $(append_target).after(response)
+        return response
+      })
+  })
+
+
+
 });//DOCUMENT READY
+
+  $.fn.serializeObject = function() {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+  };
 
   function update_company(company_id, key, value) {
     var url = "api/companies/" + company_id
